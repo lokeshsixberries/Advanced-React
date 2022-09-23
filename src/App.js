@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// import BasicClass from "./Components/BasicClass";
+// import ClassWithState from "./Components/ClassWithState";
+// import SetStateClass from "./Components/SetStateClass";
+// import ApiDataHandle from "./Components/ApiDataHandle";
+// import CreateRefWIthClass from "./Components/CreateRefWIthClass";
+// import LifeCycleMethod from "./Components/LifeCycleMethod";
+// import CycleComponentDidMount from "./Components/CycleComponentDidMount";
+import CycleComponentUpdate from "./Components/CycleComponentUpdate";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const { Component } = require("react");
+class App extends Component {
+  render() {
+    return (
+      <>
+        <CycleComponentUpdate />
+      </>
+    );
+  }
 }
 
 export default App;
