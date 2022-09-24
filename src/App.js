@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Profiler } from "react";
+import Main from "./Main";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      componentState: {},
+    };
+  }
+  render() {
+    const onRenderFunction = (
+      id, // the "id" prop of the Profiler tree that has just committed
+      phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+      actualDuration, // time spent rendering the committed update
+      baseDuration, // estimated time to render the entire subtree without memoization
+      startTime, // when React began rendering this update
+      commitTime, // when React committed this update
+      interactions
+    ) => {
+      console.log({
+        id: id,
+        phase: phase,
+        actualDuration: actualDuration,
+        baseDuration: baseDuration,
+        startTime: startTime,
+        commitTime: commitTime,
+        interactions: interactions,
+      });
+    };
+    return (
+      <Profiler id="Main" onRender={onRenderFunction}>
+        <Main />
+      </Profiler>
+    );
+  }
 }
-
-export default App;
